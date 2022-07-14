@@ -9,5 +9,6 @@ const {
 } = require('../../controllers/thoughtController')
 
 router.route('/').get(getAllThoughts).post(addNewThought);
+router.route('/')
 
 module.exports = router;    

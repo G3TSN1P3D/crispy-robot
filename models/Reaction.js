@@ -8,7 +8,7 @@ const reactionSchema = new Schema(
       },
       reactionBody: {
         type: String,
-        required: false,
+        required: true,
         max_lenght: 280
       },
       username: {
@@ -27,6 +27,6 @@ const reactionSchema = new Schema(
     }
   );
   
-  const Reaction = model("user", reactionSchema);
+  const Reaction = model("Reaction", reactionSchema); 
 
 module.exports = Reaction;

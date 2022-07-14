@@ -1,4 +1,4 @@
-const { User, Thought, Reaction } = require("../models");
+const { User, Thought } = require("../models");
 
 const thoughtController = {
   getAllThoughts(req, res) {
@@ -24,8 +24,8 @@ const thoughtController = {
   addNewThought(req, res) {
     Thought.create(req.body)
       .then(({ _id }) => {
-        return User.findOneAndUpdate(
-          { _id: req.body.userId },
+        return Thought.findOneAndUpdate(
+          { username: req.body.username },
           { $push: { thoughts: _id } },
           { new: true }
         );
